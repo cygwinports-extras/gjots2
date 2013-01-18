@@ -1,0 +1,20 @@
+inherit distutils
+
+NAME="gjots2"
+VERSION=2.3.15
+RELEASE=2
+CATEGORY="Gnome"
+SUMMARY="GNOME jotter application"
+DESCRIPTION="gjots2(1) is a simple jotter application for your desktop - an
+outline processor. You can use gjots2(1) to organise your jottings into a tree
+structure, adding thoughts and miscellany as you go. You can get it to spit out
+HTML, XML, postscript, pdf, man, etc."
+HOMEPAGE="http://bhepple.freeshell.org/gjots/"
+SRC_URI="http://bhepple.freeshell.org/gjots/${P}.tgz"
+
+src_install() {
+	cd ${B}
+	distutils_install
+	python_optimize /usr/lib/${PN}
+	mv ${D}/usr/share/doc/${P} ${D}/usr/share/doc/${PN}
+}
